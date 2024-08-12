@@ -1,3 +1,7 @@
+Here is an updated version of your README file based on the structure and code in your project:
+
+---
+
 # API SimpleCert
 
 Esta é a documentação para a API SimpleCert. Esta API permite aos usuários gerenciar certificados, categorizá-los e realizar operações de CRUD (Create, Read, Update, Delete).
@@ -27,7 +31,7 @@ Esta é a documentação para a API SimpleCert. Esta API permite aos usuários g
 
 ## Regras de Negócio
 
-- Os usuários devem ser cadastrados com nome e email.
+- Os usuários devem ser cadastrados com nome, email, e senha.
 - O email deve ser único.
 - Os certificados devem conter todas as informações requisitadas.
 - Somente usuários autenticados podem executar operações de criação, atualização e exclusão de certificados.
@@ -37,30 +41,31 @@ Esta é a documentação para a API SimpleCert. Esta API permite aos usuários g
 
 ## Estrutura do Projeto
 
-### Diretorias
+### Diretórios
 
-- `src/`: Contém o código-fonte da API.
+- `backend/`: Contém o código-fonte da API.
   - `database/`: Configurações do Prisma Client.
   - `interfaces/`: Define as interfaces para usuários e certificados.
   - `middlewares/`: Contém middlewares como autenticação.
   - `repositories/`: Implementações dos repositórios para usuários e certificados.
   - `routes/`: Define as rotas da API.
   - `usecases/`: Contém a lógica de negócio para usuários e certificados.
-- `prisma/`: Contém o arquivo de schema do Prisma.
+  - `env/`: Arquivos de configuração do ambiente.
+- `frontend/`: Contém os arquivos HTML, CSS e JavaScript para a interface do usuário.
 
 ### Arquivos Principais
 
-- `src/server.ts`: Inicializa o servidor Fastify e registra as rotas.
-- `src/database/prisma-client.ts`: Inicializa o Prisma Client.
-- `src/interfaces/user.interface.ts`: Define as interfaces para os modelos de usuário.
-- `src/interfaces/certificates.interface.ts`: Define as interfaces para os modelos de certificado.
-- `src/middlewares/auth.middleware.ts`: Middleware para autenticação.
-- `src/repositories/user.repository.ts`: Implementação do repositório de usuários.
-- `src/repositories/certificates.repository.ts`: Implementação do repositório de certificados.
-- `src/routes/user.routes.ts`: Define as rotas para operações de usuário.
-- `src/routes/certificates.routes.ts`: Define as rotas para operações de certificados.
-- `src/usecases/user.usecase.ts`: Contém a lógica de negócio para usuários.
-- `src/usecases/certificates.usecase.ts`: Contém a lógica de negócio para certificados.
+- `backend/src/server.ts`: Inicializa o servidor Fastify e registra as rotas.
+- `backend/src/database/prisma-client.ts`: Inicializa o Prisma Client.
+- `backend/src/interfaces/user.interface.ts`: Define as interfaces para os modelos de usuário.
+- `backend/src/interfaces/certificates.interface.ts`: Define as interfaces para os modelos de certificado.
+- `backend/src/middlewares/auth.middleware.ts`: Middleware para autenticação.
+- `backend/src/repositories/user.repository.ts`: Implementação do repositório de usuários.
+- `backend/src/repositories/certificates.repository.ts`: Implementação do repositório de certificados.
+- `backend/src/routes/user.routes.ts`: Define as rotas para operações de usuário.
+- `backend/src/routes/certificates.routes.ts`: Define as rotas para operações de certificados.
+- `backend/src/usecases/user.usecase.ts`: Contém a lógica de negócio para usuários.
+- `backend/src/usecases/certificates.usecase.ts`: Contém a lógica de negócio para certificados.
 - `prisma/schema.prisma`: Define o schema do banco de dados.
 
 ## Instalação
@@ -78,7 +83,7 @@ Esta é a documentação para a API SimpleCert. Esta API permite aos usuários g
 
 3. Configure o banco de dados no arquivo `.env`:
    ```
-   DATABASE_URL="file:./dev.db"
+   DATABASE_URL="mysql://root:Prog3crud@localhost:3306/simplecert_db"
    ```
 
 4. Execute as migrações do banco de dados:
@@ -105,7 +110,8 @@ Esta é a documentação para a API SimpleCert. Esta API permite aos usuários g
     ```json
     {
       "name": "Nome do Usuário",
-      "email": "email@example.com"
+      "email": "email@example.com",
+      "password": "senha123"
     }
     ```
 
@@ -160,7 +166,7 @@ Esta é a documentação para a API SimpleCert. Esta API permite aos usuários g
 - Node.js
 - Fastify
 - Prisma
-- SQLite
+- MySQL
 
 ## Contribuição
 
@@ -169,4 +175,7 @@ Esta é a documentação para a API SimpleCert. Esta API permite aos usuários g
 ## Licença
 
 - Este projeto está licenciado sob a licença MIT.
-```
+
+---
+
+Esse README reflete as configurações e funcionalidades atuais da sua API, incluindo as mudanças nos diretórios e nas dependências do projeto. Se precisar de mais alguma alteração, estou à disposição!

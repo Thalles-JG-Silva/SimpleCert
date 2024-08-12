@@ -44,6 +44,17 @@ export async function certificateRoutes(fastify: FastifyInstance) {
     }
   });
 
+  // Visualização de Certificados por UserID
+  fastify.get<{ Params: { userId: string } }>('/user/:userId', async (req, reply) => {
+    const { userId } = req.params;
+    try {
+      const certificates = await certificateUseCase.getByUserId(userId);
+      return reply.send(certificates);
+    } catch (error) {
+      reply.send(error);
+    }
+  });
+
   // Atualização de Certificados
   fastify.put<{ Params: { id: string }, Body: CertificateCreate }>('/:id', async (req, reply) => {
     const { id } = req.params;

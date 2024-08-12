@@ -49,6 +49,14 @@ class CertificateRepositoryPrisma implements CertificateRepository {
     });
   }
 
+  // Encontra certificados pelo ID do usuário
+  async getByUserId(userId: string): Promise<Certificate[]> {
+    return await prisma.certificate.findMany({
+      where: { userId },
+      include: { user: true },
+    });
+  }
+
   // Atualiza um certificado pelo ID
   async update(id: string, data: CertificateCreate): Promise<Certificate | null> {
     const certificate = await prisma.certificate.update({

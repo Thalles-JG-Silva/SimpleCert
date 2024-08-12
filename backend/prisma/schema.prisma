@@ -9,12 +9,13 @@ generator client {
 
 // Modelo de usuário
 model User {
-  id           String        @id @default(uuid())
-  name         String
-  email        String        @unique
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  certificados Certificate[] // Relacionamento com certificados
+  id        String    @id @default(uuid())
+  name      String
+  email     String    @unique
+  password  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  certificados Certificate[]
 
   @@map("users")
 }
@@ -29,7 +30,7 @@ model Certificate {
   participante String
   participacao String
   userId       String
-  user         User     @relation(fields: [userId], references: [id]) // Relacionamento com usuário
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("certificates")
 }

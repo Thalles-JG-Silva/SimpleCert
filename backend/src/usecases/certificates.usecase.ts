@@ -44,6 +44,11 @@ class CertificateUseCase {
     return await this.certificateRepository.getById(id);
   }
 
+  // Busca certificados pelo ID do usuário
+  async getByUserId(userId: string) {
+    return await this.certificateRepository.getByUserId(userId);
+  }
+
   // Atualiza um certificado pelo ID
   async update(id: string, data: CertificateCreate) {
     return await this.certificateRepository.update(id, data);
